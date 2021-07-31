@@ -1,0 +1,7 @@
+stages:
+ - build
+
+build:
+  image: docker
+  script:
+   - docker build -f {{docker_file}} .
