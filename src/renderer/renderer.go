@@ -3,6 +3,7 @@ package renderer
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"text/template"
 )
 
@@ -29,12 +30,18 @@ func (r *Renderer) Render(id string, data []byte) ([]byte, error) {
 		if err != nil {
 			return nil, err
 		}
+		if t.Docker_file == nil {
+			return nil, fmt.Errorf("missing required parameters")
+		}
 		r.templates.ExecuteTemplate(&buf, "template1.yml", t)
 	case "2":
 		var t templateTwo
 		err := json.Unmarshal(data, &t)
 		if err != nil {
 			return nil, err
+		}
+		if t.Command == nil || t.Sub_command == nil {
+			return nil, fmt.Errorf("missing required parameters")
 		}
 		r.templates.ExecuteTemplate(&buf, "template2.yml", t)
 	}
