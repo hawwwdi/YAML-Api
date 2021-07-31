@@ -19,6 +19,6 @@ func GetTemplateRenderer(r renderer) gin.HandlerFunc {
 		if err != nil {
 			c.AbortWithError(http.StatusBadRequest, err)
 		}
-		c.YAML(http.StatusOK, yml)
+		c.YAML(http.StatusOK, string(yml))
 	}
 }

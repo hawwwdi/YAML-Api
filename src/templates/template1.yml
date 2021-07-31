@@ -4,4 +4,4 @@ stages:
 build:
   image: docker
   script:
-   - docker build -f {{docker_file}} .
+   - docker build -f {{.Docker_file}}

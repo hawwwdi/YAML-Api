@@ -4,4 +4,4 @@ stages:
 build:
   image: docker
   script:
-   - docker run {{command}} {{sub_command}}
+   - docker run {{.Command}} {{.Sub_command}}

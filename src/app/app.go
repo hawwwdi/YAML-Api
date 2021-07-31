@@ -27,5 +27,5 @@ func NewApp(r renderer) *App {
 }
 
 func (a *App) Start(port string) error {
-	return a.e.Run(port)
+	return a.e.Run("localhost:" + port)
 }

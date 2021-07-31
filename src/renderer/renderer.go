@@ -11,7 +11,7 @@ type Renderer struct {
 }
 
 func NewRenderer(path string) *Renderer {
-	t, err := template.ParseGlob(path)
+	t, err := template.ParseGlob(path + "*")
 	if err != nil {
 		panic(err)
 	}
