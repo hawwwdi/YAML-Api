@@ -44,6 +44,8 @@ func (r *Renderer) Render(id string, data []byte) ([]byte, error) {
 			return nil, fmt.Errorf("missing required parameters")
 		}
 		r.templates.ExecuteTemplate(&buf, "template2.yml", t)
+	default:
+		return nil, fmt.Errorf("invalid template id")
 	}
 	return buf.Bytes(), nil
 }
